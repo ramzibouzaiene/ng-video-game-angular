@@ -10,6 +10,8 @@ import { APIResponse, Game } from '../models';
 })
 export class HttpService {
 
+  BASE_URL=environment.BASE_URL;
+
   constructor(private http:HttpClient) { }
 
   getGameList(
@@ -22,7 +24,7 @@ export class HttpService {
       params = new HttpParams().set('ordering', ordering).set('search', search);
     }
 
-    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
+    return this.http.get<APIResponse<Game>>(`${this.BASE_URL}/games`, {
       params : params,
     });
   }
