@@ -30,7 +30,7 @@ export class HttpService {
     });
   }
 
-  getGameDetails(id: string){
+  getGameDetails(id: string) : Observable<Game> {
     const gameInfoRequest = this.http.get(`${this.BASE_URL}/games/${id}`);
     const gameTrailersRequest = this.http.get(`${this.BASE_URL}/games/${id}/movies`);
     const gameScreenshotsRequest = this.http.get(`${this.BASE_URL}/games/${id}/screenshots`);
